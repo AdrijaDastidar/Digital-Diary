@@ -1,38 +1,107 @@
-.App {
-  text-align: center;
+@import url("https://fonts.googleapis.com/css2?family=Satisfy&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Allerta+Stencil&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* Root styles */
+:root {
+  --color-white: #ffffff;
+  --color-yellow: #fde02f;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+/* Body styles */
+body {
+  font-family: "Poppins", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.4;
+  color: var(--color-white);
+  background-size: cover;
+  background-position: center;
+  margin: 0;
+  margin-bottom: 50px;
+  background-color: rgb(170, 0, 255);
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* Header styles */
+header {
+  position: fixed;
+  backdrop-filter: blur(8px);
+  background: rgba(0, 0, 0, 0.4);
+  padding-top: 15px;
+  padding-bottom: 15px;
+  top: 0;
+  left: 0;
+  width: 100%;
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  z-index: 99;
+}
+.logo {
+  padding-left: 10px;
+  height: 40px; /* Adjust as needed */
+  width: auto;
 }
 
-.App-link {
-  color: #61dafb;
+
+/* Navigation links styles */
+.navigation a {
+  position: relative;
+  font-size: 20px;
+  color: var(--color-white);
+  text-decoration: none;
+  font-weight: 600;
+  margin-right: 50px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.navigation a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 100%;
+  height: 3px;
+  background: var(--color-white);
+  border-radius: 5px;
+  transform: scaleX(0);
+  transition: transform 0.5s;
+}
+
+.navigation a:hover::after {
+  transform: scaleX(1);
+}
+
+/* Container styles */
+.container {
+  width: 100%;
+  margin: 100px auto 0 auto;
+  padding: 50px;
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+}
+
+@media (min-width: 768px) {
+  .container {
+    max-width: 600px;
   }
-  to {
-    transform: rotate(360deg);
+}
+
+/* Mobile responsive adjustments */
+@media (max-width: 767px) {
+  .navigation a {
+    margin-right: 20px;
+    font-size: 18px;
+  }
+
+  .logo {
+    font-size: 40px;
   }
 }
