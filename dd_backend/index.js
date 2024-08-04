@@ -3,6 +3,10 @@ const express = require("express");
 
 const app = express();
 const port = 5000;
+var cors = require("cors");
+
+app.use(cors()); // Enable CORS - Cross Origin Resource Sharing
+
 
 app.use(express.json());
 

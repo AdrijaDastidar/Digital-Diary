@@ -1,10 +1,10 @@
+import AddNote from './AddNote'
 import Notes from './Notes'
 
 function Home() {
   return (
     <div>
-      <h1 className='container'>Home</h1>
-      <p>Add notes</p>
+      <AddNote/>
       <Notes/>
     </div>
   )
