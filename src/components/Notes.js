@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useRef, useState } from "react";
 import NoteContext from "../context/notes/noteContext";
 import NoteItems from "./NoteItems";
+import { Modal } from "bootstrap";
 
 const Notes = () => {
   const context = useContext(NoteContext);
@@ -14,14 +15,16 @@ const Notes = () => {
   });
 
   const ref = useRef(null);
+  const modalRef = useRef(null);
 
   useEffect(() => {
     getNotes();
-  }, []);
+  }, [getNotes]);
 
   const handleUpdateClick = (note) => {
     setCurrentNote(note);
-    ref.current.click();
+    const modal = new Modal(modalRef.current);
+    modal.show();
   };
 
   const handleChange = (e) => {
@@ -39,23 +42,13 @@ const Notes = () => {
 
   return (
     <div className="container my-3">
-      <button
-        ref={ref}
-        type="button"
-        className="btn btn-primary"
-        data-bs-toggle="modal"
-        data-bs-target="#exampleModal"
-        style={{ display: "none" }}
-      >
-        Launch demo modal
-      </button>
-
       <div
         className="modal fade"
         id="exampleModal"
         tabIndex="-1"
         aria-labelledby="exampleModalLabel"
         aria-hidden="true"
+        ref={modalRef}
       >
         <div className="modal-dialog modal-dialog-centered modal-dialog-scrollable">
           <div className="modal-content">
