@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import NoteContext from "../context/notes/noteContext";
 
 function AddNote() {
@@ -18,7 +18,7 @@ function AddNote() {
   return (
     <div className="container">
       <h1>Got a Spark of Inspiration?</h1>
-      <h3>Write it down and watch your ideas take flight!</h3>
+      <h3>Seize the Moment and watch your ideas take flight!</h3>
       <div className="mb-3 my-3">
         <label htmlFor="title" className="form-label">
           Note Title

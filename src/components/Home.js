@@ -1,13 +1,13 @@
-import AddNote from './AddNote'
-import Notes from './Notes'
+import AddNote from "./AddNote";
+import Notes from "./Notes";
 
 function Home() {
   return (
     <div>
-      <AddNote/>
-      <Notes/>
+      <AddNote />
+      <Notes />
     </div>
-  )
+  );
 }
 
-export default Home
+export default Home;
