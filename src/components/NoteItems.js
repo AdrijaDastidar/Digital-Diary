@@ -1,31 +1,27 @@
 import React from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPenToSquare, faTrash } from "@fortawesome/free-solid-svg-icons";
 
-function NoteItems(props) {
-  const { note, handleEditClick, deleteNote } = props;
-
+const NoteItems = ({ note, handleEditClick, handleDeleteClick }) => {
   return (
-    <div className="card my-3 mx-3" style={{ width: "15rem" }}>
+    <div className="card mb-3" style={{width: "16rem"}}>
       <div className="card-body">
-        <div className="d-flex align-items-center">
-          <h3 className="card-title">{note.title}</h3>
-          <FontAwesomeIcon
-            className="icon mx-3"
-            icon={faPenToSquare}
-            onClick={() => handleEditClick(note)}
-          />
-          <FontAwesomeIcon
-            className="icon mx-3"
-            icon={faTrash}
-            onClick={() => deleteNote(note._id)}
-          />
-        </div>
+        <h2 className="card-title">{note.title}</h2>
         <h4 className="card-text">{note.description}</h4>
-        <h5 className="card-text">Tag: {note.tag}</h5>
+        <h5 className="card-subtitle">Tags : {note.tag}</h5>
+        <button
+          className="btn btn-warning me-2 my-3 mx-4"
+          onClick={() => handleEditClick(note)}
+        >
+          Edit
+        </button>
+        <button
+          className="btn btn-danger mx-3"
+          onClick={() => handleDeleteClick(note._id)}
+        >
+          Delete
+        </button>
       </div>
     </div>
   );
-}
+};
 
 export default NoteItems;
